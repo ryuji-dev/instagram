@@ -3,6 +3,12 @@
     color: #f9fafb;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 .navigation {
     position: fixed;
     display: flex;
@@ -348,13 +354,15 @@
     margin-bottom: 6px;
 }
 
-.profile__description {
-    margin-bottom: 6px;
+.profile__name-separator {
+    color: #9ca3af;
+    font-size: 14px;
 }
 
 .profile__url {
     display: flex;
     align-items: center;
+    gap: 2px;
 }
 
 .profile__url > img {
@@ -366,6 +374,7 @@
     font-weight: 500;
     text-decoration: none;
     color: #f9fafb;
+    margin-top: 2px;
 }
 
 .profile__url > a:hover {
@@ -422,8 +431,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 200px;
     padding: 70px 0;
+    text-align: center;
 }
 
 .posts__no-posts > h3 {
@@ -595,4 +607,14 @@
 
 .footer__copyright span img {
     width: 20px;
+}
+
+.footer__language {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer__language img {
+    height: 16px;
 }

@@ -88,11 +88,11 @@
             <main class="main">
                 <section class="profile">
                     <div class="profile__image">
-                        <img alt="profile_img" id="profile-img">
+                        <img alt="profile_img" id="profile-img" src="https://via.placeholder.com/150">
                     </div>
                     <div class="profile__info">
                         <div class="profile__first-block">
-                            <h2 class="profile__username" id="profile-id"></h2>
+                            <h2 class="profile__username" id="profile-id">류지현</h2>
                             <button class="profile__btn" id="update-profile-btn">프로필 편집</button>
                             
                             <dialog class="update-profile-modal modal">
@@ -148,11 +148,14 @@
                             </li>
                         </ul>
                         <div class="profile__third-block">
-                            <span class="profile__name" id="profile-name"></span>
-                            <p class="profile__description" id="profile-description"></p>
+                            <span class="profile__name" id="profile-name">
+                                류지현
+                                <span class="profile__name-separator"> | </span>
+                                <span class="profile__description" id="profile-description">엘리스 Node.js 백엔드 개발 트랙</span>
+                            </span>
                             <span class="profile__url">
                                 <img src="assets/link_icon.svg" alt="link_icon">
-                                <a href="" id="profile-link" target="_blank"></a>
+                                <a href="https://github.com/ryuji-dev/instagram" id="profile-link" target="_blank">https://github.com/ryuji-dev/instagram</a>
                             </span>
                         </div>
                     </div>
@@ -165,12 +168,12 @@
                                     <img src="assets/grid_icon.svg" alt="grid_icon">게시물
                                 </button>
                             </li>
-                            <li class="posts_nav-item">
+                            <li class="posts__nav-item">
                                 <button>
                                     <img src="assets/bookmark_icon.svg" alt="bookmark_icon">저장됨
                                 </button>
                             </li>
-                            <li class="posts_nav-item">
+                            <li class="posts__nav-item">
                                 <button>
                                     <img src="assets/contact_icon.svg" alt="contact_icon">태그됨
                                 </button>
@@ -220,7 +223,7 @@
                     </li>
                 </ul>
                 <div class="footer__copyright">
-                    <span>
+                    <span class="footer__language">
                         한국어
                         <img src="assets/expand_more_icon.svg" alt="expand_more_icon">
                     </span>
