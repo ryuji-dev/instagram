@@ -446,13 +446,13 @@ dialog form {
 }
 
 /* 게시물 갤러리 */
-.posts__gallary {
+.posts__gallery {
     display: grid;
     gap: 6px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.posts__gallary--no-posts {
+.posts__gallery--no-posts {
     grid-template-columns: 1fr;
 }
 
@@ -558,12 +558,12 @@ dialog form {
     border-radius: 8px;
     margin-right: 6px;
     padding: 8px 16px;
-    background-color: #f9fafb;
+    background-color: #6366f1;
 }
 
 .post-modal__update-btns > button:hover {
     cursor: pointer;
-    background-color: #f3f4f6;
+    background-color: #4f46e5;
 }
 
 .post-modal__btns {

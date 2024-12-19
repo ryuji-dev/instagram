@@ -19,7 +19,7 @@ const addPostFileInput = document.getElementById('add-post-file');
 const addPostModalCloseBtn = addPostModal.querySelector('.modal__close-btn');
 const addPostShareBtn = document.getElementById('add-post-share');
 const addPostModalTextarea = addPostModal.querySelector('.add-post-modal__textarea');
-const postsGallary = document.querySelector('.posts__gallary');
+const postsGallery = document.querySelector('.posts__gallery');
 
 // 프로필 관련 DOM 요소 선택
 const profileImg = document.getElementById('profile-img');
@@ -50,15 +50,34 @@ window.addEventListener('load', () => {
     updatePostsUI();
 })
 
+// 다이얼로그를 여는 함수
+const openAddPostModal = () => {
+    const addPostModal = document.querySelector('.add-post-modal');
+
+    if (addPostModal.open) addPostModal.close();
+    
+    addPostModal.showModal();
+}
+
+const openUpdateProfileModal = () => {
+    const updateProfileModal = document.querySelector('.update-profile-modal');
+    
+    if (updateProfileModal.open) {
+        updateProfileModal.close();
+    }
+
+    updateProfileModal.showModal();
+}
+
 // 이벤트 초기화 함수
 const initEvents = () => {
     // 게시물 관련 이벤트
-    addPost.addEventListener('click', () => addPostModal.showModal());
+    addPost.addEventListener('click', openAddPostModal);
     addPostModalCloseBtn.addEventListener('click', () => addModalShareToFileMode());
     addPostFileInput.addEventListener('change', handleFileInputChangePost); // -> 기존 프로필 데이터 변경됨
 
     // 프로필 수정 관련 이벤트
-    updateProfileBtn.addEventListener('click', () => updateProfileModal.showModal());
+    updateProfileBtn.addEventListener('click', openUpdateProfileModal);
     updateProfileSave.addEventListener('click', handleUpdateProfileSave);
     updateProfileCloseBtn.addEventListener('click', () => updateProfileUI());
     updateProfileFile.addEventListener('change', handleFileInputChangeProfile);
@@ -151,8 +170,8 @@ const updatePostsUI = () => {
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
     if (!posts.length) {
-        postsGallary.classList.add('posts__gallary--no-posts');
-        postsGallary.innerHTML = `<div class="posts__no-posts">
+        postsGallery.classList.add('posts__gallery--no-posts');
+        postsGallery.innerHTML = `<div class="posts__no-posts">
                                     <div class="posts__circle">
                                         <img src="assets/camera_icon.svg" alt="camera_icon" />
                                     </div>
@@ -161,7 +180,7 @@ const updatePostsUI = () => {
         return;
     }
 
-    postsGallary.classList.remove('posts__gallary--no-posts');
+    postsGallery.classList.remove('posts__gallery--no-posts');
     const innerHTML = posts.reduce((acc, post) => {
         return (
             acc +
@@ -190,7 +209,7 @@ const updatePostsUI = () => {
                                 <button class="post-modal__update-cancel-btn">취소</button>
                             </div>
                         </div>
-                        <div class="post-modal__btns>
+                        <div class="post-modal__btns">
                             <button class="post-modal__btn post-modal__update-btn">
                                 <img src="assets/edit_icon.svg" alt="edit_icon" />
                             </button>
@@ -207,7 +226,7 @@ const updatePostsUI = () => {
         );
     }, '');
 
-    postsGallary.innerHTML = innerHTML;
+    postsGallery.innerHTML = innerHTML;
 
     posts.forEach(({ id, text }) => {
         const post = document.getElementById(`post-${id}`);
@@ -217,7 +236,9 @@ const updatePostsUI = () => {
         if (!postModal) return;
         if (openedDialogPostId === `post-${id}`) postModal.showModal();
 
-        post.addEventListener('click', () => postModal.showModal());
+        post.addEventListener('click', () => {
+            if (!postModal.open) postModal.showModal();
+        });
 
         const closeBtn = postModal.querySelector('.modal__close-btn');
         if (closeBtn) {
@@ -237,15 +258,21 @@ const updatePostsUI = () => {
             })
         }
 
-        post.querySelector('.post-modal__update-submit-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            updatePost(id, postModal.querySelector('.post-modal__textarea').value);
-        });
+        const updateSubmitBtn = postModal.querySelector('.post-modal__update-submit-btn');
+        if (updateBtn) {
+            updateSubmitBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                updatePost(id, postModal.querySelector('.post-modal__textarea').value);
+            })
+        }
 
-        post.querySelector('.post-modal__update-cancel-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            postModalUpdateToViewMode(postModal, text);
-        });
+        const updateCancelBtn = postModal.querySelector('.post-modal__updtae-cancel-btn');
+        if (updateCancelBtn) {
+            updateCancelBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                postModalUpdateToViewMode(postModal, text);
+            })
+        }
     });
 };
 
