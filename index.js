@@ -214,15 +214,29 @@ const updatePostsUI = () => {
         if (!post) return;
 
         const postModal = post.querySelector('.post-modal');
+        if (!postModal) return;
         if (openedDialogPostId === `post-${id}`) postModal.showModal();
 
         post.addEventListener('click', () => postModal.showModal());
-        postModal.querySelector('.modal__close-btn').addEventListener('click', () => postModalUpdateToViewMode(postModal, text));
-        post.querySelector('.post-modal__delete-btn').addEventListener('click', () => confirm('정말로 삭제하시겠습니까?') && deletePost(id));
-        post.querySelector('.post-modal__update-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            postModalViewToUpdateMode(postModal);
-        });
+
+        const closeBtn = postModal.querySelector('.modal__close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => postModalUpdateToViewMode(postModal, text));
+        }
+
+        const deleteBtn = post.querySelector('.post-modal__delete-btn');
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click', ()=> confirm('정말로 삭제하시겠습니까?') && deletePost(id))
+        }
+
+        const updateBtn = post.querySelector('.post-modal__update-btn');
+        if (updateBtn) {
+            updateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                postModalViewToUpdateMode(postModal);
+            })
+        }
+
         post.querySelector('.post-modal__update-submit-btn').addEventListener('click', (e) => {
             e.preventDefault();
             updatePost(id, postModal.querySelector('.post-modal__textarea').value);
