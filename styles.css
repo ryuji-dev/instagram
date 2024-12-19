@@ -14,6 +14,12 @@ ul {
     margin: 0;
 }
 
+dialog form {
+    border: 2px solid #a5b4fc;
+    border-radius: 8px;
+}
+
+/* 네비게이션 */
 .navigation {
     position: fixed;
     display: flex;
@@ -62,6 +68,7 @@ ul {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* 모달 */
 .modal {
     border-radius: 3px;
     overflow: hidden;
@@ -180,12 +187,21 @@ ul {
 
 .add-post-modal__file > span {
     font-size: 20px;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+}
+
+.add-post-modal__file > label {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #f9fafb;
+    background-color: #6366f1;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .add-post-modal__file > label:hover {
     cursor: pointer;
-    background-color: #6366f1;
+    background-color: #4f46e5;
 }
 
 .add-post-modal__file > input {
@@ -215,6 +231,7 @@ ul {
     display: none;
 }
 
+/* 컨테이너 */
 .container {
     display: flex;
     flex-direction: column;
@@ -230,6 +247,7 @@ ul {
     padding: 30px 0;
 }
 
+/* 프로필 */
 .profile {
     display: flex;
     padding: 0 0 40px;
@@ -255,6 +273,7 @@ ul {
 
 .profile__username {
     font-size: 20px;
+    font-weight: 700;
     line-height: 20px;
     margin-right: 20px;
 }
@@ -355,7 +374,7 @@ ul {
     display: flex;
     flex-direction: column;
     font-size: 14px;
-    gap: 4px;
+    gap: 6px;
 }
 
 .profile__name {
@@ -382,13 +401,14 @@ ul {
     font-weight: 500;
     text-decoration: none;
     color: #f9fafb;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .profile__url > a:hover {
     text-decoration: underline;
 }
 
+/* 게시물 네비게이션 */
 .posts__navigation {
     width: 100%;
     border-top: 1px solid #6b7280;
@@ -425,6 +445,7 @@ ul {
     color: #f9fafb;
 }
 
+/* 게시물 갤러리 */
 .posts__gallary {
     display: grid;
     gap: 6px;
@@ -448,12 +469,13 @@ ul {
 
 .posts__no-posts > h3 {
     font-size: 28px;
+    font-weight: 400;
 }
 
 .posts__circle {
     padding: 16px;
     margin-bottom: 16px;
-    border: 2px solid #f9fafb;
+    border: 2px solid #FF8A65;
     border-radius: 50%;
 }
 
@@ -461,6 +483,7 @@ ul {
     width: 32px;
 }
 
+/* 게시물 */
 .post {
     position: relative;
     width: 100%;
@@ -500,6 +523,7 @@ ul {
     width: 24px;
 }
 
+/* 게시물 모달 */
 .post-modal > form {
     position: relative;
     display: flex;
@@ -576,6 +600,7 @@ ul {
     display: none;
 }
 
+/* 푸터 */
 .footer {
     display: flex;
     flex-direction: column;
