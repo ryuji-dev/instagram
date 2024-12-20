@@ -45,6 +45,7 @@ const updateProfileCloseBtn = updateProfileModal.querySelector('.modal__close-bt
 
 // 페이지 로드 시 이벤트 초기화 및 UI 업데이트
 window.addEventListener('load', () => {
+    localStorage.clear();
     initEvents();
     updateProfileUI();
     updatePostsUI();
@@ -56,6 +57,8 @@ const openAddPostModal = () => {
 
     if (addPostModal.open) addPostModal.close();
     
+    addPostFileInput.value = '';
+    addPostShareBtn.style.display = 'none';
     addPostModal.showModal();
 }
 
@@ -69,12 +72,16 @@ const openUpdateProfileModal = () => {
     updateProfileModal.showModal();
 }
 
+addPostFileInput.addEventListener('change', (e) => {
+    addPostShareBtn.style.display = e.target.files.length > 0 ? 'initial' : 'none';
+})
+
 // 이벤트 초기화 함수
 const initEvents = () => {
     // 게시물 관련 이벤트
     addPost.addEventListener('click', openAddPostModal);
     addPostModalCloseBtn.addEventListener('click', () => addModalShareToFileMode());
-    addPostFileInput.addEventListener('change', handleFileInputChangePost); // -> 기존 프로필 데이터 변경됨
+    addPostFileInput.addEventListener('change', handleFileInputChangePost);
 
     // 프로필 수정 관련 이벤트
     updateProfileBtn.addEventListener('click', openUpdateProfileModal);
