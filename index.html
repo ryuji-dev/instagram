@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://font.elice.io/css?family=Elice+DX+Neolli"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>Instagram</title>
+</head>
+<body>
+    <nav class="navigation">
+        <a class="navigation__logo" href="https://www.instagram.com/" target="_blank">
+            <div class="navigation__logo-img">
+                <img src="assets/instagram_img.svg" alt="instagram_logo">
+                <img class="navigation__logo-word" src="assets/instagram_word.svg" alt="instagram_logo">
+            </div>
+        </a>
+        <ul class="navigation__lists">
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/home_icon.svg" alt="home_icon">홈
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/search_icon.svg" alt="search_icon">검색
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/explore_icon.svg" alt="explore_icon">탐색 탭
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/media_icon.svg" alt="media_icon">릴스
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/send_icon.svg" alt="send_icon">메시지
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link">
+                    <img src="assets/favorite_icon.svg" alt="favorite_icon">알림
+                </a>
+            </li>
+            <li class="navigation__list">
+                <a class="navigation__link" id="add-post">
+                    <img src="assets/add_icon.svg" alt="add_icon">만들기
+                </a>
+                <dialog class="add-post-modal modal add-post-modal--file-mode">
+                    <form method="dialog">
+                        <header class="modal__header">
+                            새 게시물 만들기
+                            <button class="modal__header-btn" id="add-post-share" style="display: none;">공유하기</button>
+                        </header>
+                        <div class="add-post-modal__file">
+                            <img src="assets/gallery_icon.svg" alt="gallery_icon">
+                            <span>사진과 동영상을 여기에 끌어다 놓으세요</span>
+                            <label for="add-post-file">컴퓨터에서 선택</label>
+                            <input type="file" accept="image/png, image/jpeg, image/jpg, image/gif" name="add-post-file" id="add-post-file" />
+                        </div>
+                        <div class="add-post-modal__post">
+                            <img class="modal__image" />
+                            <textarea class="add-post-modal__textarea" placeholder="여기에 내용을 입력하세요."></textarea>
+                        </div>
+                        <button class="modal__close-btn">
+                            <img src="assets/close_icon.svg" alt="close_icon">
+                        </button>
+                    </form>
+                </dialog>
+            </li>
+            <li class="navigation__lists">
+                <a class="navigation__link">
+                    <img src="assets/contact_icon.svg" alt="contact_icon">프로필
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="container__inner">
+            <main class="main">
+                <section class="profile">
+                    <div class="profile__image">
+                        <img alt="profile_img" id="profile-img" src="https://via.placeholder.com/150">
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__first-block">
+                            <h2 class="profile__username" id="profile-id"></h2>
+                            <button class="profile__btn" id="update-profile-btn">프로필 편집</button>
+                            
+                            <dialog class="update-profile-modal modal">
+                                <form method="dialog">
+                                    <header class="modal__header">
+                                        프로필 편집
+                                        <button class="modal__header-btn" id="update-profile-save">저장</button>
+                                    </header>
+                                    <div class="update-profile-modal__update">
+                                        <label for="update-profile-file" class="update-profile-modal__file">
+                                            <img alt="profile_img" id="update-profile-img">
+                                            <div class="update-profile-modal__file-hover">
+                                                <img src="assets/camera_icon.svg" alt="camera_icon">
+                                            </div>
+                                        </label>
+                                        <input type="file" accept="image/png, image/jpeg, image/jpg, image/gif" name="update-profile-file" id="update-profile-file">
+                                        <div class="modal__input">
+                                            <label for="update-profile-id">인스타 아이디</label>
+                                            <input type="text" id="update-profile-id" placeholder="인스타 아이디를 입력하세요.">
+                                        </div>
+                                        <div class="modal__input">
+                                            <label for="update-profile-name">이름</label>
+                                            <input type="text" id="update-profile-name" placeholder="이름을 입력하세요.">
+                                        </div>
+                                        <div class="modal__input">
+                                            <label for="update-profile-link">웹사이트</label>
+                                            <input type="text" id="update-profile-link" placeholder="웹사이트를 입력하세요.">
+                                        </div>
+                                        <div class="modal__input">
+                                            <label for="update-profile-description">프로필 설명</label>
+                                            <textarea id="update-profile-description" placeholder="프로필 설명을 입력하세요." rows="8" cols="32"></textarea>
+                                        </div>
+                                    </div>
+                                    <button class="modal__close-btn">
+                                        <img src="assets/close_icon.svg" alt="close_icon">
+                                    </button>
+                                </form>
+                            </dialog>
+                            <button class="profile__btn">보관된 스토리 보기</button>
+                            <button class="profile__settings">
+                                <img src="assets/setting_icon.svg" alt="setting_icon">
+                            </button>
+                        </div>
+                        <ul class="profile__second-block">
+                            <li class="profile__quantity" id="profile-posts">
+                                게시물 <strong></strong>
+                            </li>
+                            <li class="profile__quantity" id="profile-followers">
+                                팔로워 <strong></strong>
+                            </li>
+                            <li class="profile__quantity" id="profile-following">
+                                팔로잉 <strong></strong>
+                            </li>
+                        </ul>
+                        <div class="profile__third-block">
+                            <span class="profile__name" id="profile-name"></span>
+                            <p class="profile__description" id="profile-description"></p>
+                            <span class="profile__url">
+                                <img src="assets/link_icon.svg" alt="link_icon">
+                                <a href="https://github.com/ryuji-dev/instagram" id="profile-link" target="_blank"></a>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+                <section class="posts">
+                    <nav class="posts__navigation">
+                        <ul>
+                            <li class="posts__nav-item posts__nav-item--selected">
+                                <button>
+                                    <img src="assets/grid_icon.svg" alt="grid_icon">게시물
+                                </button>
+                            </li>
+                            <li class="posts__nav-item">
+                                <button>
+                                    <img src="assets/bookmark_icon.svg" alt="bookmark_icon">저장됨
+                                </button>
+                            </li>
+                            <li class="posts__nav-item">
+                                <button>
+                                    <img src="assets/contact_icon.svg" alt="contact_icon">태그됨
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="posts__gallery"></div>
+                </section>
+            </main>
+            <footer class="footer">
+                <ul class="footer__links">
+                    <li>
+                        <a href="https://www.meta.com/" target="_blank" class="footer__link">Meta</a>
+                    </li>
+                    <li>
+                        <a href="https://about.meta.com/ko/company-info/" target="_blank" class="footer__link">소개</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/formedia/blog?locale=ko_KR" target="_blank" class="footer__link">블로그</a>
+                    </li>
+                    <li>
+                        <a href="https://www.metacareers.com/locations/seoul/?p[offices][0]=Seoul%2C%20South%20Korea&offices[0]=Seoul%2C%20South%20Korea" target="_blank" class="footer__link">채용 정보</a>
+                    </li>
+                    <li>
+                        <a href="https://developers.facebook.com/docs?locale=ko_KR" target="_blank" class="footer__link">API</a>
+                    </li>
+                    <li>
+                        <a href="https://about.instagram.com/ko-kr/safety/privacy" target="_blank" class="footer__link">개인정보처리방침</a>
+                    </li>
+                    <li>
+                        <a href="https://about.instagram.com/ko-kr/blog/announcements/instagram-community-terms-of-use-faqs" target="_blank" class="footer__link">약관</a>
+                    </li>
+                    <li>
+                        <a href="https://ko-kr.facebook.com/business/help/407786796286142" target="_blank" class="footer__link">위치</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/web/lite/" target="_blank" class="footer__link">Instagram Lite</a>
+                    </li>
+                    <li>
+                        <a href="https://www.threads.net/?hl=ko" target="_blank" class="footer__link">Threads</a>
+                    </li>
+                    <li>
+                        <a href="https://ko-kr.facebook.com/help/instagram/236691729788553" target="_blank" class="footer__link">연락처 업로드 & 비사용자</a>
+                    </li>
+                    <li>
+                        <a href="https://about.meta.com/technologies/meta-verified/" target="_blank" class="footer__link">Meta Verified</a>
+                    </li>
+                </ul>
+                <div class="footer__copyright">
+                    <span class="footer__language">
+                        한국어
+                        <img src="assets/expand_more_icon.svg" alt="expand_more_icon">
+                    </span>
+                    <span>&copy; 2024 Instagram from Meta</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
